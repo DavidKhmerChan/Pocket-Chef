@@ -8,8 +8,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -53,11 +55,21 @@ public class RecipeListActivity extends AppCompatActivity {
         recipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(), CookingStartActivity.class);
+                TextView search = (TextView) findViewById(R.id.list_searchbar);
+                search.setText(recipes.get(position).getRecipeName());
+                Intent intent = new Intent(RecipeListActivity.this , CookingStartActivity.class);
+                Bundle bundle= new Bundle();
+                bundle.putString("recipeName", recipes.get(position).getRecipeName());
+                ArrayList<String> listToArrayList = new ArrayList<String>();
+                Iterator i =recipes.get(position).getIngredients().iterator();
+                while(i.hasNext()){
+                    listToArrayList.add(i.next().toString());
+                }
+                bundle.putStringArrayList("ingredients", listToArrayList);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
 
     }
-
 }
