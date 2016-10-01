@@ -16,11 +16,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".RecipeListActivity" />
+
         <activity android:name=".CookingStartActivity" />
         <activity android:name=".Settings" />
         <activity android:name=".AddRecipe" />
         <activity android:name=".CookingProgressActivity" />
         <activity android:name=".Instruction"></activity>
+
+        <activity android:name=".CookingStartActivity"/>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".AddRecipeActivity"></activity>
+        <activity android:name=".CookingProgressActivity"></activity>
+
     </application>
 
 </manifest>
