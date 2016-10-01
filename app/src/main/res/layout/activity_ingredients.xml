@@ -11,98 +11,66 @@
     tools:context="davidchan.pocketchef.AddRecipe">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="1st Ingredient"
+        android:text="Ingredient"
         android:ems="10"
-        android:id="@+id/ingredient1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/ingredient"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="2nd Ingredient"
-        android:ems="10"
-        android:id="@+id/ingredient2"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/ingredient1"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="3rd ingredient"
-        android:ems="10"
-        android:layout_marginTop="21dp"
-        android:id="@+id/ingredient3"
-        android:layout_below="@+id/ingredient2"
-        android:layout_alignParentEnd="true" />
-
-    <Spinner
-        android:layout_width="76dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/ingredient1"
-        android:layout_alignBottom="@+id/ingredient1"
-        android:entries="@array/measurement_array"
-        android:prompt="@string/measurement_prompt" />
-
-    <Spinner
-        android:layout_width="76dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner2"
-        android:layout_alignTop="@+id/ingredient2"
-        android:layout_toStartOf="@+id/ingredient2"
-        android:layout_above="@+id/ingredient3"
-        android:entries="@array/measurement_array"
-        android:prompt="@string/measurement_prompt" />
-
-    <Spinner
-        android:layout_width="76dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner3"
-        android:entries="@array/measurement_array"
-        android:prompt="@string/measurement_prompt"
-        android:layout_alignTop="@+id/ingredient3"
-        android:layout_toStartOf="@+id/ingredient3"
-        android:layout_alignBottom="@+id/ingredient3" />
-
-    <EditText
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:text="Amount"
         android:ems="10"
         android:id="@+id/editText4"
-        android:layout_alignBaseline="@+id/spinner"
-        android:layout_alignBottom="@+id/spinner"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="60dp"
+    <Spinner
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/editText5"
-        android:layout_alignBaseline="@+id/spinner2"
-        android:layout_alignBottom="@+id/spinner2"
+        android:id="@+id/spinner"
+        android:entries="@array/measurement_array"
+        android:prompt="@string/measurement_prompt"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/ingredient1"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Finished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_marginStart="37dp"
+        android:layout_alignBaseline="@+id/button"
+        android:layout_alignBottom="@+id/button"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="60dp"
+    <Button
+        android:text="Add Ingredients"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/editText6"
-        android:layout_alignTop="@+id/spinner3"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/button"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/ingredient"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp"
+        android:id="@+id/textView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
