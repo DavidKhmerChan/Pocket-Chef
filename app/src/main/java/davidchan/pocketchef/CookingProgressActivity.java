@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by Ryan on 10/1/2016.
  */
-
+//
 public class CookingProgressActivity extends Activity{
     int i=0;
     Button timeButton;
