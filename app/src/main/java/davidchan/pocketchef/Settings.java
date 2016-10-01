@@ -1,17 +1,19 @@
 package davidchan.pocketchef;
 
+import android.app.Activity;
+import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class Settings extends AppCompatActivity {
+public class Settings extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-        TextView imperial = (TextView) findViewById(R.id.metric_text);
-        imperial.setText("Convert to Metric measurements");
 
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingFragments()).commit();
+        
     }
+
 }
