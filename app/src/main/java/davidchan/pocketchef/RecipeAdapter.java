@@ -52,14 +52,14 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
                     results.count = recipes.size();
                 }
                 else {
-                    List<Recipe> filteredRecipes = new ArrayList<>();
+                    List<Recipe> filteredRecipesData = new ArrayList<>();
                     for (Recipe recipe : recipes) {
                         if (recipe.getRecipeName().contains(charSequence)) {
-                            filteredRecipes.add(recipe);
+                            filteredRecipesData.add(recipe);
                         }
                     }
-                    results.values = filteredRecipes;
-                    results.count = filteredRecipes.size();
+                    results.values = filteredRecipesData;
+                    results.count = filteredRecipesData.size();
                 }
                 return results;
             }
@@ -70,6 +70,12 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
                 notifyDataSetChanged();
             }
         };
+
+    }
+
+    @Override
+    public int getCount() {
+        return filteredRecipes.size();
     }
 
 }

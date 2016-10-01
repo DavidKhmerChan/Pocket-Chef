@@ -36,7 +36,6 @@ public class RecipeListActivity extends AppCompatActivity {
         recipes.add(new Recipe("Hot Dogs", hotDogRecipe));
 
         final EditText searchBar = (EditText) findViewById(R.id.list_searchbar);
-        final String temp = searchBar.getText().toString();
         Button searchButton = (Button) findViewById(R.id.list_search_go);
         recipeListView = (ListView) findViewById(R.id.list_recipe_list);
         adapter = new RecipeAdapter(this, R.layout.recipe_row, recipes);
