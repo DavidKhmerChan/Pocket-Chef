@@ -10,8 +10,47 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="davidchan.pocketchef.MainActivity">
 
-    <TextView
+    <AutoCompleteTextView
+        android:completionThreshold="3"
+        android:dropDownWidth="match_parent"
+        android:id="@+id/search_content"
+        android:layout_toLeftOf="@+id/search"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignBottom="@+id/search"
+        android:background="@color/transparent"
+        android:layout_alignParentTop="true" />
+    <Button
+        android:id="@+id/search"
+        android:layout_alignParentRight="true"
+        android:text="@string/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_content">
+
+        <ImageButton
+            android:src="@android:drawable/alert_dark_frame"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pic_size" />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/bottom_bar"
+            />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/add"
+        android:text="@string/app_add_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
 </RelativeLayout>

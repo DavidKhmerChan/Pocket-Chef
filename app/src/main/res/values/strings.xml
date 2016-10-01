@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Pocket Chef</string>
+<<<<<<< Updated upstream
     <string name="list_search_go">Search</string>
+=======
+    <string name="app_setting">Settings</string>
+    <string name="category">Categories</string>
+    <string name="app_add_recipe">Create</string>
+    <string name="search">Search</string>
+>>>>>>> Stashed changes
 </resources>
