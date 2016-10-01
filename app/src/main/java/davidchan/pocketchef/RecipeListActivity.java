@@ -41,7 +41,7 @@ public class RecipeListActivity extends AppCompatActivity {
 
         final EditText searchBar = (EditText) findViewById(R.id.list_searchbar);
         Button searchButton = (Button) findViewById(R.id.list_search_go);
-        recipeListView = (ListView) findViewById(R.id.list_recipe_list);
+        recipeListView = (ListView) findViewById(R.id.custom_list_view);
         adapter = new RecipeAdapter(this, R.layout.recipe_row, recipes);
         recipeListView.setAdapter(adapter);
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,7 +38,8 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
 
         TextView recipeName = (TextView) row.findViewById(R.id.recipe_row_name);
         recipeName.setText(recipe.getRecipeName());
-
+        RatingBar ratingBar = (RatingBar) row.findViewById( R.id.row_rating);
+        ratingBar.setRating( recipe.getRating() );
         return row;
     }
 
