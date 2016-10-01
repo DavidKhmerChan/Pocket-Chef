@@ -10,8 +10,8 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        TextView imperial = (TextView) findViewById(R.id.imperial_text);
-        imperial.setText("Convert to Imperial measurements");
+        TextView imperial = (TextView) findViewById(R.id.metric_text);
+        imperial.setText("Convert to Metric measurements");
 
     }
 }

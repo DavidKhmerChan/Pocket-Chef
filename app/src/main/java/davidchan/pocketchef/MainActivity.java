@@ -55,4 +55,9 @@ public class MainActivity extends AppCompatActivity {
         Intent featured = new Intent(this, RecipeListActivity.class);
         startActivity(featured);
     }
+
+    public void addRecipe(View view) {
+        Intent newRecipe = new Intent(this, AddRecipe.class);
+        startActivity(newRecipe);
+    }
 }

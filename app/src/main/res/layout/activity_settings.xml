@@ -11,20 +11,20 @@
     tools:context="davidchan.pocketchef.Settings">
 
     <LinearLayout
-        android:id="@+id/imperial_setting"
+        android:id="@+id/metric_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
         <TextView
-            android:id="@+id/imperial_text"
+            android:id="@+id/metric_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/filter_setting"
-        android:layout_below="@+id/imperial_setting"
+        android:layout_below="@+id/metric_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <CheckBox
