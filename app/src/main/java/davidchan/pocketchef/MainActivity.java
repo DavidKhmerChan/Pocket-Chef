@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.setting:
-                Intent intent = new Intent(this, Settings.class);
+                Intent intent = new Intent(this, SettingsActivity.class);
                 this.startActivity(intent);
                 break;
             case R.id.category:
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addRecipe(View view) {
-        Intent newRecipe = new Intent(this, AddRecipe.class);
+        Intent newRecipe = new Intent(this, AddRecipeActivity.class);
         startActivity(newRecipe);
     }
 }
