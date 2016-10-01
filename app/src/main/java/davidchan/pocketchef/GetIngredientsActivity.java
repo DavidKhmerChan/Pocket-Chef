@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class GetIngredientsActivity extends Activity
     protected void onCreate(Bundle saveInstantBundle)
     {
         super.onCreate(saveInstantBundle);
-        setContentView(R.layout.activity_ingredients);
+        setContentView(R.layout.activity_add_ingredients);
 
         boolean AddIngredient = true;
 

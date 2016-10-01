@@ -13,7 +13,7 @@ public class AddRecipe extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingredients);
+        setContentView(R.layout.activity_add_ingredients);
         boolean AddIngredient = false;
 
         Button button3 = (Button) findViewById(R.id.button);
