@@ -1,5 +1,6 @@
 package davidchan.pocketchef;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,6 +21,9 @@ import java.util.List;
  */
 
 public class RecipeListActivity extends AppCompatActivity {
+
+    private static final String RATING_CHANGE = "davidchan.pocketchef.rating_change";
+    private static final int REQUEST_CODE_RATECHANGE = 0;
 
     List<Recipe> recipes;
     ListView recipeListView;
@@ -59,10 +64,32 @@ public class RecipeListActivity extends AppCompatActivity {
                     listToArrayList.add(i.next().toString());
                 }
                 bundle.putStringArrayList("ingredients", listToArrayList);
+                bundle.putInt( "position", position );
+                if (recipes.get( position ).getRateBar() != null)
+                {
+                    bundle.putFloat( "rating", recipes.get( position ).getRating() );
+                }
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_RATECHANGE);
             }
         });
         
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == REQUEST_CODE_RATECHANGE) {
+            if (data == null) {
+                return;
+            }
+            int position = data.getIntExtra( "position", 0);
+            recipes.get( position ).initializeRating( new RatingBar( this ) );
+            recipes.get( position ).setRating( CookingStartActivity.ratingChange( data ) );
+        }
+    }
+
 }

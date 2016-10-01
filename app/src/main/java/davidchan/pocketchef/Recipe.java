@@ -1,5 +1,8 @@
 package davidchan.pocketchef;
 
+import android.content.Context;
+import android.widget.RatingBar;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,7 @@ public class Recipe implements Serializable {
     private List<String> ingredients;
     private List<String> instructions;
     private int filename;
+    private RatingBar rateBar;
 
     public Recipe() {
         recipeName = "";
@@ -61,6 +65,24 @@ public class Recipe implements Serializable {
 
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void initializeRating(RatingBar ratingBar)
+    {
+        rateBar = ratingBar;
+    }
+
+    public void setRating(float rating)
+    {
+        rateBar.setRating( rating );
+    }
+    public float getRating()
+    {
+        return rateBar.getRating();
+    }
+    public RatingBar getRateBar()
+    {
+        return rateBar;
     }
     
 }
