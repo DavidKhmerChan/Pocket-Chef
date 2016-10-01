@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -86,6 +87,16 @@ public class RecipeListActivity extends AppCompatActivity {
             recipes.get( position ).initializeRating( new RatingBar( this ) );
             recipes.get( position ).setRating( CookingStartActivity.ratingChange( data ) );
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent data = new Intent();
+        Bundle recipeData = new Bundle();
+        recipeData.putSerializable("recipes", (Serializable) recipes);
+        data.putExtra("recipeData", recipeData);
+        setResult(Activity.RESULT_OK, data);
+        finish();
     }
 
 }

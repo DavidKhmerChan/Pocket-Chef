@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<Recipe> recipes;
     private final int ADD_RECIPE = 1;
+    private final int UPDATE_RECIPE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 Bundle recipeData = new Bundle();
                 recipeData.putSerializable("recipes", (Serializable) recipes);
                 featured.putExtra("recipeData", recipeData);
-                startActivity(featured);
+                startActivityForResult(featured, UPDATE_RECIPE);
             }
         });
  //       startActivity(new Intent(this, RecipeListActivity.class));
@@ -140,6 +141,11 @@ public class MainActivity extends AppCompatActivity {
                     recipes = (List<Recipe>) temp.get("recipes");
                 }
                 break;
+            case UPDATE_RECIPE:
+                if (resultCode == Activity.RESULT_OK) {
+                    Bundle temp = data.getExtras().getBundle("recipeData");
+                    recipes = (List<Recipe>) temp.get("recipes");
+                }
             default: break;
         }
     }
