@@ -87,6 +87,6 @@ public class RecipeListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        
     }
 }
