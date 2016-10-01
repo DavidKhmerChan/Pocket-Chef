@@ -34,19 +34,18 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/search_content">
         <TextView
-            android:id="@+id/featured"
-            android:text="@string/featured"
-            android:textSize="25sp"
+            android:id="@+id/featured_title"
+            android:textSize="22sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <ImageButton
-            android:id="@+id/feature_item"
+            android:id="@+id/featured_pic"
             android:src="@drawable/friedrice"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/pic_size" />
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/featured_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/bottom_bar"

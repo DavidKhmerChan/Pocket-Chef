@@ -31,6 +31,8 @@ public class CookingStartActivity extends Activity{
         addToView.addAll(recipe.getStringArrayList("ingredients"));
         recipeList.setAdapter(addToView);
         ImageView food = (ImageView) findViewById(R.id.foodImage);
+        int recipeImage = recipe.getInt("recipeImage");
+        food.setImageResource(recipeImage);
         Button button = (Button) findViewById(R.id.startcooking);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

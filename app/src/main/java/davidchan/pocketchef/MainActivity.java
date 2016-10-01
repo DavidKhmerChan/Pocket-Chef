@@ -2,6 +2,7 @@ package davidchan.pocketchef;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Random rd = new Random();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recipes = new ArrayList<Recipe>();
+
         List<String> friedRiceIngredients = new ArrayList<>();
         friedRiceIngredients.add("Rice");
         friedRiceIngredients.add("Egg");
@@ -53,7 +57,22 @@ public class MainActivity extends AppCompatActivity {
         hotDogInstructions.add("Something");
         recipes.add(new Recipe("Hot Dogs", hotDogRecipe, hotDogInstructions, R.drawable.friedrice));
 
-        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.feature_item);
+//        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
+        List<String> friedRiceRecipe = new ArrayList<>();
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+
+        recipes.add(new Recipe("Fried Rice", friedRiceRecipe, R.drawable.friedrice, "Hello this is my world famous recipe."));
+        recipes.add(new Recipe("Hot Dogs", hotDogRecipe, R.drawable.hotdog, "Hot dogs suck"));
+        List<String> tacoRecipe = new ArrayList<>();
+        tacoRecipe.add("Ground Beef/Pork");
+        tacoRecipe.add("Tortilla Bun");
+        tacoRecipe.add("Taco Sauce");
+        tacoRecipe.add("Cooking Oil");
+        tacoRecipe.add("Onions");
+        tacoRecipe.add("Salt");
+        recipes.add(new Recipe("Taco", tacoRecipe, R.drawable.taco, "Tacos are the best"));
+        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
         accessRecipeList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
         });
  //       startActivity(new Intent(this, RecipeListActivity.class));
 
-        TextView description = (TextView) findViewById(R.id.description);
-        description.setText("Blah Blah Blah Blah Blah Blah Blah Blah");
 
         Button createRecipe = (Button) findViewById(R.id.create_recipe);
         createRecipe.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +97,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(newRecipe, ADD_RECIPE);
             }
         });
+
+        int randomizer = rd.nextInt(recipes.size());
+        TextView description = (TextView) findViewById(R.id.featured_description);
+        description.setText(recipes.get(randomizer).getDescription());
+        ImageButton featuredItem = (ImageButton) findViewById(R.id.featured_pic);
+        featuredItem.setImageResource(recipes.get(randomizer).getFilename());
+
+        TextView title = (TextView) findViewById(R.id.featured_title);
+        title.setText("Featured Recipe : " + recipes.get(randomizer).getRecipeName());
+
     }
 
     @Override

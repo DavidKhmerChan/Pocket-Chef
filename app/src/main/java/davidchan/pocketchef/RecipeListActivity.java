@@ -52,6 +52,7 @@ public class RecipeListActivity extends AppCompatActivity {
                 Intent intent = new Intent(RecipeListActivity.this , CookingStartActivity.class);
                 Bundle bundle= new Bundle();
                 bundle.putString("recipeName", recipes.get(position).getRecipeName());
+                bundle.putInt("recipeImage", recipes.get(position).getFilename());
                 ArrayList<String> listToArrayList = new ArrayList<String>();
                 Iterator i =recipes.get(position).getIngredients().iterator();
                 while(i.hasNext()){
