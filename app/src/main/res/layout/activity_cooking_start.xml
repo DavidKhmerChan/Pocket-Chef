@@ -3,11 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
+        android:id="@+id/foodImage"
         android:layout_width="match_parent"
         android:layout_height="175dp"
         android:background="@android:color/transparent"
         android:src="@android:drawable/alert_dark_frame"
-        android:id="@+id/foodImage"
     />
 
     <ListView
@@ -18,10 +18,11 @@
     </ListView>
 
     <Button
+        android:id="@+id/startcooking"
         android:text="Start"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/startcooking" />
+        android:background="@color/colorPrimaryDark" />
+
 </RelativeLayout>

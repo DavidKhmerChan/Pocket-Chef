@@ -14,7 +14,6 @@
             android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="99:99"
             android:textSize="48dp"
             android:gravity="center"
             android:contentDescription="Countdown timer"
@@ -28,6 +27,16 @@
             android:layout_height="60dp"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/intervals"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:prompt="@string/timeIntervals"
+            android:entries="@array/time_intervals"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
     </RelativeLayout>
     <TextView
         android:id="@+id/Step"

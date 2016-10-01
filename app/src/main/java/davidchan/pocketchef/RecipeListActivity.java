@@ -74,7 +74,6 @@ public class RecipeListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView search = (TextView) findViewById(R.id.list_searchbar);
-                search.setText(recipes.get(position).getRecipeName());
                 Intent intent = new Intent(RecipeListActivity.this , CookingStartActivity.class);
                 Bundle bundle= new Bundle();
                 bundle.putString("recipeName", recipes.get(position).getRecipeName());

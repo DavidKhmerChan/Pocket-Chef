@@ -19,14 +19,12 @@ public class CookingStartActivity extends Activity{
     Bundle recipe;
     protected void onCreate(Bundle savedInstanceBundle) {
         super.onCreate(savedInstanceBundle);
-        setContentView(R.layout.activity_cookingstart);
+        setContentView(R.layout.activity_cooking_start);
 
         Intent received = getIntent();
         recipe= received.getExtras();
         String recipeName = recipe.getString("recipeName");
         ArrayList<String> ingredientList =recipe.getStringArrayList("ingredients");
-//        recipe.putString("recipeName", recipeName);
-//        recipe.putStringArrayList("ingredients", ingredientList);
         ArrayAdapter<String> addToView = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         ListView recipeList = (ListView) findViewById(R.id.itemList);
         addToView.add(recipeName);
