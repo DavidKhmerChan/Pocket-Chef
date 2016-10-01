@@ -21,7 +21,6 @@
         <activity android:name=".AddIngredientsActivity" />
         <activity android:name=".CookingProgressActivity" />
         <activity android:name=".AddRecipeActivity" />
-        <activity android:name=".AddInstructionsActivity"></activity>
     </application>
 
 </manifest>
