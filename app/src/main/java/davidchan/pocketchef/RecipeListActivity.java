@@ -13,6 +13,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class RecipeListActivity extends AppCompatActivity {
                 Bundle bundle= new Bundle();
                 bundle.putString("recipeName", recipes.get(position).getRecipeName());
                 bundle.putInt("recipeImage", recipes.get(position).getFilename());
-                bundle.putStringArrayList("ingredients", listToArrayList);
+                bundle.putStringArrayList("ingredients", (ArrayList<String>) recipes.get(position).getIngredients());
                 bundle.putInt( "position", position );
                 if (recipes.get( position ).getRateBar() != null)
                 {

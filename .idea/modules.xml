@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Pocket-Chef.iml" filepath="$PROJECT_DIR$/Pocket-Chef.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PocketChef.iml" filepath="$PROJECT_DIR$/PocketChef.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
