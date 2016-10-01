@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,14 @@ public class MainActivity extends AppCompatActivity {
  //       startActivity(new Intent(this, RecipeListActivity.class));
         TextView description = (TextView) findViewById(R.id.description);
         description.setText("Blah Blah Blah Blah Blah Blah Blah Blah");
+//        ImageButton featured = (ImageButton) findViewById(R.id.feature_item);
+//        featured.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent showFeatured = new Intent(this,RecipeListActivity.class);
+//
+//            }
+//        });
     }
 
     @Override
@@ -40,5 +49,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    public void openRecipeList(View view) {
+        Intent featured = new Intent(this, RecipeListActivity.class);
+        startActivity(featured);
     }
 }
