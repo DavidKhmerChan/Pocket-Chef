@@ -62,10 +62,7 @@ public class RecipeListActivity extends AppCompatActivity {
                 bundle.putInt("recipeImage", recipes.get(position).getFilename());
                 bundle.putStringArrayList("ingredients", (ArrayList<String>) recipes.get(position).getIngredients());
                 bundle.putInt( "position", position );
-                if (recipes.get( position ).getRateBar() != null)
-                {
-                    bundle.putFloat( "rating", recipes.get( position ).getRating() );
-                }
+                bundle.putFloat( "rating", recipes.get( position ).getRating() );
                 intent.putExtras(bundle);
                 startActivityForResult(intent, REQUEST_CODE_RATECHANGE);
             }
@@ -78,13 +75,11 @@ public class RecipeListActivity extends AppCompatActivity {
         if (resultCode != Activity.RESULT_OK) {
             return;
         }
-
         if (requestCode == REQUEST_CODE_RATECHANGE) {
             if (data == null) {
                 return;
             }
             int position = data.getIntExtra( "position", 0);
-            recipes.get( position ).initializeRating( new RatingBar( this ) );
             recipes.get( position ).setRating( CookingStartActivity.ratingChange( data ) );
         }
     }

@@ -17,11 +17,12 @@ public class Recipe implements Serializable {
     private List<String> ingredients;
     private List<String> instructions;
     private int filename;
-    private RatingBar rateBar;
+    private float rating;
 
     public Recipe() {
         recipeName = "";
         ingredients = new ArrayList<>();
+        rating = 0;
     }
 
 
@@ -30,6 +31,7 @@ public class Recipe implements Serializable {
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.filename = filename;
+        rating = 0;
     }
 
     public Recipe(String recipeName, List<String> ingredients, int filename, String description) {
@@ -37,6 +39,7 @@ public class Recipe implements Serializable {
             this.ingredients = ingredients;
             this.filename = filename;
             this.description = description;
+            rating = 0;
         }
 
     public int getFilename() {
@@ -67,22 +70,14 @@ public class Recipe implements Serializable {
         this.ingredients = ingredients;
     }
 
-    public void initializeRating(RatingBar ratingBar)
+    public float getRating()
     {
-        rateBar = ratingBar;
+        return rating;
     }
 
     public void setRating(float rating)
     {
-        rateBar.setRating( rating );
-    }
-    public float getRating()
-    {
-        return rateBar.getRating();
-    }
-    public RatingBar getRateBar()
-    {
-        return rateBar;
+        this.rating = rating;
     }
     
 }
