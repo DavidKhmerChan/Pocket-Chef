@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         friedRiceRecipe.add("Rice");
         friedRiceRecipe.add("Egg");
 
-        recipes.add(new Recipe("Fried Rice", friedRiceRecipe));
+        recipes.add(new Recipe("Fried Rice", friedRiceRecipe, R.drawable.friedrice));
         List<String> hotDogRecipe = new ArrayList<>();
         hotDogRecipe.add("Hot Dog");
         hotDogRecipe.add("Bun");
-        recipes.add(new Recipe("Hot Dogs", hotDogRecipe));
+        recipes.add(new Recipe("Hot Dogs", hotDogRecipe, R.drawable.friedrice));
 
         ImageButton accessRecipeList = (ImageButton) findViewById(R.id.feature_item);
         accessRecipeList.setOnClickListener(new View.OnClickListener() {
@@ -59,16 +59,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
  //       startActivity(new Intent(this, RecipeListActivity.class));
+
         TextView description = (TextView) findViewById(R.id.description);
         description.setText("Blah Blah Blah Blah Blah Blah Blah Blah");
-//        ImageButton featured = (ImageButton) findViewById(R.id.feature_item);
-//        featured.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent showFeatured = new Intent(this,RecipeListActivity.class);
-//
-//            }
-//        });
     }
 
     @Override
