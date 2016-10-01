@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
-public class AddRecipe extends AppCompatActivity {
+public class AddRecipeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
