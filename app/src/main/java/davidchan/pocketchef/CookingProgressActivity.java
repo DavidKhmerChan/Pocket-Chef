@@ -59,6 +59,7 @@ public class CookingProgressActivity extends Activity{
                     pause=true;
                     pauseButton.setText("Start");
                     timePerStep=timePerStep(totalTime);
+                    setTimer(totalTime);
                     i++;
                 }
                 if(i >= ingredientList.size()){
@@ -88,10 +89,7 @@ public class CookingProgressActivity extends Activity{
         CountDownTimer newTime = new CountDownTimer(Time, S){
             @Override
             public void onTick(long millisUntilFinished) {
-                long min = (millisUntilFinished / 1000) / 60;
-                long sec = (millisUntilFinished / 1000) % 60;
-                totalTime=millisUntilFinished;
-                timer.setText(min + ":" + ((sec <10) ? "0"+ sec : sec));
+                setTimer(millisUntilFinished);
             }
             @Override
             public void onFinish() {
@@ -102,6 +100,7 @@ public class CookingProgressActivity extends Activity{
                     pause=true;
                     pauseButton.setText("Start");
                     timePerStep=timePerStep(totalTime);
+                    setTimer(totalTime);
                     i++;
                 }
                 if(i >= ingredientList.size()){
@@ -111,5 +110,11 @@ public class CookingProgressActivity extends Activity{
             }
         };
         return newTime;
+    }
+    private void setTimer(long msTime){
+        long min = (msTime / 1000) / 60;
+        long sec = (msTime / 1000) % 60;
+        totalTime=msTime;
+        timer.setText(min + ":" + ((sec <10) ? "0"+ sec : sec));
     }
 }
