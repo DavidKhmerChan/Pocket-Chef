@@ -29,15 +29,33 @@ public class RecipeListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceBundle);
         setContentView(R.layout.activity_recipe_list);
 
+        Bundle recipeData = getIntent().getExtras().getBundle("recipeData");
+        recipes = (List<Recipe>) recipeData.get("recipes");
+
         recipes = new ArrayList<Recipe>();
         List<String> friedRiceRecipe = new ArrayList<>();
         friedRiceRecipe.add("Rice");
         friedRiceRecipe.add("Egg");
-        recipes.add(new Recipe("Fried Rice", friedRiceRecipe));
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+
+        recipes.add(new Recipe("Fried Rice", friedRiceRecipe, R.drawable.friedrice));
         List<String> hotDogRecipe = new ArrayList<>();
         hotDogRecipe.add("Hot Dog");
         hotDogRecipe.add("Bun");
-        recipes.add(new Recipe("Hot Dogs", hotDogRecipe));
+        recipes.add(new Recipe("Hot Dogs", hotDogRecipe, R.drawable.friedrice));
 
         final EditText searchBar = (EditText) findViewById(R.id.list_searchbar);
         Button searchButton = (Button) findViewById(R.id.list_search_go);
@@ -56,7 +74,6 @@ public class RecipeListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView search = (TextView) findViewById(R.id.list_searchbar);
-                search.setText(recipes.get(position).getRecipeName());
                 Intent intent = new Intent(RecipeListActivity.this , CookingStartActivity.class);
                 Bundle bundle= new Bundle();
                 bundle.putString("recipeName", recipes.get(position).getRecipeName());

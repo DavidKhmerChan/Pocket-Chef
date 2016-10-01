@@ -1,5 +1,6 @@
 package davidchan.pocketchef;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,19 +8,21 @@ import java.util.List;
  * Created by David on 9/30/2016.
  */
 
-public class Recipe {
+public class Recipe implements Serializable {
 
     private String recipeName;
     private List<String> ingredients;
+    private int filename;
 
     public Recipe() {
         recipeName = "";
         ingredients = new ArrayList<>();
     }
 
-    public Recipe(String recipeName, List<String> ingredients) {
+    public Recipe(String recipeName, List<String> ingredients, int filename) {
         this.recipeName = recipeName;
         this.ingredients = ingredients;
+        this.filename = filename;
     }
 
     public String getRecipeName() {
@@ -37,5 +40,5 @@ public class Recipe {
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
-
+    
 }
