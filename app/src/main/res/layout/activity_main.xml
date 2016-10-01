@@ -38,7 +38,6 @@
             android:id="@+id/feature_item"
             android:src="@android:drawable/alert_dark_frame"
             android:scaleType="fitXY"
-            android:onClick="openRecipeList"
             android:layout_width="match_parent"
             android:layout_height="@dimen/pic_size" />
         <TextView

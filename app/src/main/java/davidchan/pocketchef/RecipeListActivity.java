@@ -29,30 +29,8 @@ public class RecipeListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceBundle);
         setContentView(R.layout.activity_recipe_list);
 
-        recipes = new ArrayList<Recipe>();
-        List<String> friedRiceRecipe = new ArrayList<>();
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-
-        recipes.add(new Recipe("Fried Rice", friedRiceRecipe));
-        List<String> hotDogRecipe = new ArrayList<>();
-        hotDogRecipe.add("Hot Dog");
-        hotDogRecipe.add("Bun");
-        recipes.add(new Recipe("Hot Dogs", hotDogRecipe));
+        Bundle recipeData = getIntent().getExtras().getBundle("recipeData");
+        recipes = (List<Recipe>) recipeData.get("recipes");
 
         final EditText searchBar = (EditText) findViewById(R.id.list_searchbar);
         Button searchButton = (Button) findViewById(R.id.list_search_go);

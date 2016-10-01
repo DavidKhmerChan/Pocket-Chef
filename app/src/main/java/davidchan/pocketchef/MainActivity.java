@@ -10,12 +10,54 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    List<Recipe> recipes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recipes = new ArrayList<Recipe>();
+        List<String> friedRiceRecipe = new ArrayList<>();
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+
+        recipes.add(new Recipe("Fried Rice", friedRiceRecipe));
+        List<String> hotDogRecipe = new ArrayList<>();
+        hotDogRecipe.add("Hot Dog");
+        hotDogRecipe.add("Bun");
+        recipes.add(new Recipe("Hot Dogs", hotDogRecipe));
+
+        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.feature_item);
+        accessRecipeList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent featured = new Intent(v.getContext(), RecipeListActivity.class);
+                Bundle recipeData = new Bundle();
+                recipeData.putSerializable("recipes", (Serializable) recipes);
+                featured.putExtra("recipeData", recipeData);
+                startActivity(featured);
+            }
+        });
  //       startActivity(new Intent(this, RecipeListActivity.class));
         TextView description = (TextView) findViewById(R.id.description);
         description.setText("Blah Blah Blah Blah Blah Blah Blah Blah");
@@ -52,8 +94,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openRecipeList(View view) {
-        Intent featured = new Intent(this, RecipeListActivity.class);
-        startActivity(featured);
     }
 
     public void addRecipe(View view) {
