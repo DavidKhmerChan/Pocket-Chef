@@ -53,12 +53,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/add_ingredient"
-        android:layout_below="@id/ingredient" />
+        android:layout_below="@+id/ingredient" />
 
     <ListView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="280dp"
+        android:layout_above="@+id/add_ingredients_finish"
         android:layout_below="@+id/add_ingredient"
         android:id="@+id/ingredients_list_preview">
 

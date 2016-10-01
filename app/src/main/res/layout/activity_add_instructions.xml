@@ -27,8 +27,9 @@
     <ListView
         android:id="@+id/instructions_list_preview"
         android:layout_width="match_parent"
-        android:layout_height="340dp"
-        android:layout_below="@id/add_instructions_go">
+        android:layout_height="match_parent"
+        android:layout_below="@id/add_instructions_go"
+        android:layout_above="@+id/add_instructions_finish">
 
     </ListView>
 
