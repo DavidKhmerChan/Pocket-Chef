@@ -1,8 +1,10 @@
 package davidchan.pocketchef;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -45,6 +47,14 @@ public class RecipeListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 adapter.getFilter().filter(searchBar.getText());
+            }
+        });
+
+        recipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), CookingStartActivity.class);
+                startActivity(intent);
             }
         });
 
