@@ -10,16 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <ImageButton
+            android:id="@+id/addTime"
             android:background="@android:color/transparent"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            app:srcCompat="@android:drawable/ic_input_add"
-            android:id="@+id/addTime"/>
+            app:srcCompat="@android:drawable/ic_input_add" />
 
         <TextView
+            android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/timer"
             android:text="99:99"
             android:textSize="48dp"
             android:gravity="center"
@@ -28,12 +28,14 @@
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
     <TextView
+        android:id="@+id/Step"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:text="Step-by-step goes here"
         android:gravity="center"
         android:textSize="40dp"/>
     <Button
+        android:id="@+id/nextStep"
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="50dp"
