@@ -8,69 +8,61 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="davidchan.pocketchef.AddRecipeActivity">
+    tools:context="davidchan.pocketchef.AddIngredientsActivity">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Ingredient"
+        android:hint="Ingredient"
         android:ems="10"
         android:id="@+id/ingredient"
         android:layout_marginTop="11dp"
-        android:layout_below="@+id/editText4"
+        android:layout_below="@+id/amount"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Amount"
+        android:hint="Amount"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/amount"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:id="@+id/measurement_selection"
         android:entries="@array/measurement_array"
         android:prompt="@string/measurement_prompt"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/ingredient1"
+        android:layout_above="@+id/ingredient"
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Finished"
-        android:layout_width="wrap_content"
+        android:text="Finish"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_marginStart="37dp"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/add_ingredients_finish"
+        android:layout_alignParentBottom="true" />
 
     <Button
         android:text="Add Ingredients"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_marginEnd="36dp"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/ingredient"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/add_ingredient"
+        android:layout_below="@id/ingredient" />
 
-    <TextView
+    <ListView
         android:text="TextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="21dp"
-        android:id="@+id/textView"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_height="280dp"
+        android:layout_below="@+id/add_ingredient"
+        android:id="@+id/ingredients_list_preview">
+
+    </ListView>
 
 
 </RelativeLayout>

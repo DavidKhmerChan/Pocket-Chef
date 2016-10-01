@@ -1,11 +1,13 @@
 package davidchan.pocketchef;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,35 +18,40 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     List<Recipe> recipes;
+    private final int ADD_RECIPE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recipes = new ArrayList<Recipe>();
-        List<String> friedRiceRecipe = new ArrayList<>();
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
+        List<String> friedRiceIngredients = new ArrayList<>();
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        friedRiceIngredients.add("Rice");
+        friedRiceIngredients.add("Egg");
+        List<String> friedRiceInstructions = new ArrayList<>();
+        friedRiceInstructions.add("Something");
 
-        recipes.add(new Recipe("Fried Rice", friedRiceRecipe, R.drawable.friedrice));
+        recipes.add(new Recipe("Fried Rice", friedRiceIngredients, friedRiceInstructions, R.drawable.friedrice));
         List<String> hotDogRecipe = new ArrayList<>();
         hotDogRecipe.add("Hot Dog");
         hotDogRecipe.add("Bun");
-        recipes.add(new Recipe("Hot Dogs", hotDogRecipe, R.drawable.friedrice));
+        List<String> hotDogInstructions = new ArrayList<>();
+        hotDogInstructions.add("Something");
+        recipes.add(new Recipe("Hot Dogs", hotDogRecipe, hotDogInstructions, R.drawable.friedrice));
 
         ImageButton accessRecipeList = (ImageButton) findViewById(R.id.feature_item);
         accessRecipeList.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +68,18 @@ public class MainActivity extends AppCompatActivity {
 
         TextView description = (TextView) findViewById(R.id.description);
         description.setText("Blah Blah Blah Blah Blah Blah Blah Blah");
+
+        Button createRecipe = (Button) findViewById(R.id.create_recipe);
+        createRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newRecipe = new Intent(v.getContext(), AddRecipeActivity.class);
+                Bundle recipeData = new Bundle();
+                recipeData.putSerializable("recipes", (Serializable) recipes);
+                newRecipe.putExtra("recipeData", recipeData);
+                startActivityForResult(newRecipe, ADD_RECIPE);
+            }
+        });
     }
 
     @Override
@@ -85,11 +104,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void openRecipeList(View view) {
-    }
-
-    public void addRecipe(View view) {
-        Intent newRecipe = new Intent(this, AddRecipeActivity.class);
-        startActivity(newRecipe);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case ADD_RECIPE:
+                if (resultCode == Activity.RESULT_OK) {
+                    Bundle temp = data.getExtras().getBundle("recipeData");
+                    recipes = (List<Recipe>) temp.get("recipes");
+                }
+                break;
+            default: break;
+        }
     }
 }

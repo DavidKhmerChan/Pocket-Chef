@@ -12,6 +12,7 @@ public class Recipe implements Serializable {
 
     private String recipeName;
     private List<String> ingredients;
+    private List<String> instructions;
     private int filename;
 
     public Recipe() {
@@ -19,9 +20,10 @@ public class Recipe implements Serializable {
         ingredients = new ArrayList<>();
     }
 
-    public Recipe(String recipeName, List<String> ingredients, int filename) {
+    public Recipe(String recipeName, List<String> ingredients, List<String> instructions, int filename) {
         this.recipeName = recipeName;
         this.ingredients = ingredients;
+        this.instructions = instructions;
         this.filename = filename;
     }
 
@@ -31,6 +33,10 @@ public class Recipe implements Serializable {
 
     public List<String> getIngredients() {
         return ingredients;
+    }
+
+    public List<String> getInstructions() {
+        return instructions;
     }
 
     public void setRecipeName(String recipeName) {
