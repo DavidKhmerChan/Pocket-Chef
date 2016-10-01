@@ -19,6 +19,7 @@
         <activity android:name=".CookingStartActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".AddIngredientsActivity" />
+        <activity android:name=".AddInstructionsActivity" />
         <activity android:name=".CookingProgressActivity" />
         <activity android:name=".AddRecipeActivity" />
     </application>

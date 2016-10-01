@@ -26,6 +26,9 @@ public class AddRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
 
+        ingredients = new ArrayList<>();
+        instructions = new ArrayList<>();
+
         Bundle recipeData = getIntent().getExtras().getBundle("recipeData");
         recipes = (List<Recipe>) recipeData.get("recipes");
 
@@ -38,6 +41,9 @@ public class AddRecipeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addIngredientsActivity = new Intent(v.getContext(), AddIngredientsActivity.class);
+                Bundle ingredientData = new Bundle();
+                ingredientData.putSerializable("ingredients", (Serializable) ingredients);
+                addIngredientsActivity.putExtra("ingredientData", ingredientData);
                 startActivityForResult(addIngredientsActivity, ADD_INGREDIENTS);
             }
         });
@@ -45,8 +51,11 @@ public class AddRecipeActivity extends AppCompatActivity {
         addInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addIngredientsActivity = new Intent(v.getContext(), AddInstructionsActivity.class);
-                startActivityForResult(addIngredientsActivity, ADD_INSTRUCTIONS);
+                Intent addInstructionActivity = new Intent(v.getContext(), AddInstructionsActivity.class);
+                Bundle instructionData = new Bundle();
+                instructionData.putSerializable("instructions", (Serializable) instructions);
+                addInstructionActivity.putExtra("instructionData", instructionData);
+                startActivityForResult(addInstructionActivity, ADD_INSTRUCTIONS);
             }
         });
 
