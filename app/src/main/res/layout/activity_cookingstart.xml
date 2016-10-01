@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
@@ -9,22 +9,19 @@
         android:src="@android:drawable/alert_dark_frame"
         android:id="@+id/foodImage"
     />
-    <ScrollView
+
+    <ListView
+        android:id="@+id/itemList"
         android:layout_width="match_parent"
-        android:layout_height="276dp"
-        android:background="@android:color/transparent"
-        android:id="@+id/instructionAndIngredients">
-        <ListView
-            android:id="@+id/itemList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </ListView>
-    </ScrollView>
+        android:layout_below="@+id/foodImage"
+        android:layout_height="450dp">
+    </ListView>
 
     <Button
         android:text="Start"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/startcooking" />
-</LinearLayout>
+</RelativeLayout>

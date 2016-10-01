@@ -33,6 +33,21 @@ public class RecipeListActivity extends AppCompatActivity {
         List<String> friedRiceRecipe = new ArrayList<>();
         friedRiceRecipe.add("Rice");
         friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+        friedRiceRecipe.add("Rice");
+        friedRiceRecipe.add("Egg");
+
         recipes.add(new Recipe("Fried Rice", friedRiceRecipe));
         List<String> hotDogRecipe = new ArrayList<>();
         hotDogRecipe.add("Hot Dog");
