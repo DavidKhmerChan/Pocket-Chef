@@ -10,29 +10,29 @@ import java.util.List;
 
 public class Instruction implements Serializable {
 
-    private List<String> instructions;
+    private String instruction;
     private double duration;
 
     public Instruction() {
-        instructions = new ArrayList<>();
+        instruction = "";
         duration = 0;
     }
 
-    public Instruction(List<String> instructions, double duration) {
-        this.instructions = instructions;
+    public Instruction(String instruction, double duration) {
+        this.instruction = instruction;
         this.duration = duration;
     }
 
-    public List<String> getInstructions() {
-        return instructions;
+    public String getInstruction() {
+        return instruction;
     }
 
     public double getDuration() {
         return duration;
     }
 
-    public void setInstructions(List<String> instructions) {
-        this.instructions = instructions;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
     }
 
     public void setDuration(double duration) {

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Ingredient implements Serializable {
 
-    private List<String> ingredients;
+    private String ingredient;
     private double amount;
     private MEASUREMENT format;
 
@@ -24,19 +24,19 @@ public class Ingredient implements Serializable {
     }
 
     public Ingredient() {
-        ingredients = new ArrayList<String>();
+        ingredient = "";
         amount = 0;
         format = MEASUREMENT.Error;
     }
 
-    public Ingredient(List<String> ingredients, double amount, MEASUREMENT format) {
-        this.ingredients = ingredients;
+    public Ingredient(String ingredient, double amount, MEASUREMENT format) {
+        this.ingredient = ingredient;
         this.amount = amount;
         this.format = format;
     }
 
-    public List<String> getIngredients() {
-        return ingredients;
+    public String getIngredient() {
+        return ingredient;
     }
 
     public double getAmount() {
@@ -47,8 +47,8 @@ public class Ingredient implements Serializable {
         return format;
     }
 
-    public void setIngredients(List<String> ingredients) {
-        this.ingredients = ingredients;
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
     }
 
     public void setAmount(double amount) {

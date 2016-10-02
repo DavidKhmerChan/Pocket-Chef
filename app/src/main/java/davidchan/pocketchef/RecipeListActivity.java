@@ -60,7 +60,7 @@ public class RecipeListActivity extends AppCompatActivity {
                 Bundle bundle= new Bundle();
                 bundle.putString("recipeName", recipes.get(position).getRecipeName());
                 bundle.putInt("recipeImage", recipes.get(position).getFilename());
-                bundle.putStringArrayList("ingredients", (ArrayList<String>) recipes.get(position).getIngredientObject().getIngredients());
+                bundle.putSerializable("ingredients", (Serializable) recipes.get(position).getIngredientObject());
                 bundle.putInt( "position", position );
                 bundle.putFloat( "rating", recipes.get( position ).getRating() );
                 intent.putExtras(bundle);

@@ -20,19 +20,20 @@ import java.util.List;
 
 public class AddIngredientsActivity extends AppCompatActivity {
 
-    Ingredient ingredients;
+    List<Ingredient> ingredients;
     EditText ingredientBox;
     EditText amountBox;
     Spinner measurementSelector;
     ListView listOfIngredients;
-    ArrayAdapter<String> adapter;
+    IngredientAdapter adapter;
     int measurement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         final Bundle ingredientData = getIntent().getExtras().getBundle("ingredientData");
-        ingredients = (Ingredient) ingredientData.get("ingredients");
+        ingredients = (List<Ingredient>) ingredientData.get("ingredients");
+        ingredients.add(new Ingredient());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredients);
@@ -42,7 +43,7 @@ public class AddIngredientsActivity extends AppCompatActivity {
         amountBox = (EditText) findViewById(R.id.amount);
         measurementSelector = (Spinner) findViewById(R.id.measurement_selection);
         listOfIngredients = (ListView) findViewById(R.id.ingredients_list_preview);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ingredients.getIngredients());
+        adapter = new IngredientAdapter(this, R.layout.ingredient_row, ingredients);
         listOfIngredients.setAdapter(adapter);
 
         measurementSelector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -61,23 +62,23 @@ public class AddIngredientsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(ingredientBox.getText().toString().length() != 0 && amountBox.getText().toString().length() != 0){
-                    ingredients.getIngredients().add(ingredientBox.getText().toString());
-                    ingredients.setAmount(Double.parseDouble(amountBox.getText().toString()));
+                    ingredients.get(0).setIngredient(ingredientBox.getText().toString());
+                    ingredients.get(0).setAmount(Double.parseDouble(amountBox.getText().toString()));
                     switch(measurement) {
                         case 0:
-                            ingredients.setFormat(Ingredient.MEASUREMENT.Cup);
+                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Cup);
                             break;
                         case 1:
-                            ingredients.setFormat(Ingredient.MEASUREMENT.Tbsp);
+                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Tbsp);
                             break;
                         case 2:
-                            ingredients.setFormat(Ingredient.MEASUREMENT.Tsp);
+                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Tsp);
                             break;
                         case 3:
-                            ingredients.setFormat(Ingredient.MEASUREMENT.Oz);
+                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Oz);
                             break;
                         case 4:
-                            ingredients.setFormat(Ingredient.MEASUREMENT.Lb);
+                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Lb);
                             break;
                     }
                     adapter.notifyDataSetChanged();

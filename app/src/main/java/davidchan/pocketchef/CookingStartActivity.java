@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Ryan on 9/30/2016.
@@ -32,11 +33,11 @@ public class CookingStartActivity extends Activity{
         position = received.getIntExtra( "position", 0 );
         float rating = received.getFloatExtra( "rating", 0 );
         String recipeName = recipe.getString("recipeName");
-        ArrayList<String> ingredientList =recipe.getStringArrayList("ingredients");
+        List<Instruction> ingredientList =(List<Instruction>) recipe.getSerializable("ingredients");
         ArrayAdapter<String> addToView = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         ListView recipeList = (ListView) findViewById(R.id.itemList);
         addToView.add(recipeName);
-        addToView.addAll(recipe.getStringArrayList("ingredients"));
+        addToView.addAll(ingredientList.get(0).getInstruction());
         recipeList.setAdapter(addToView);
         ImageView food = (ImageView) findViewById(R.id.foodImage);
         int recipeImage = recipe.getInt("recipeImage");

@@ -14,20 +14,20 @@ import java.util.List;
 public class Recipe implements Serializable {
 
     private String recipeName, description;
-    private Ingredient ingredients;
-    private Instruction instructions;
+    private List<Ingredient> ingredients;
+    private List<Instruction> instructions;
     private int filename;
     private float rating;
 
     public Recipe() {
         recipeName = "";
-        ingredients = new Ingredient();
-        instructions = new Instruction();
+        ingredients = new ArrayList<>();
+        instructions = new ArrayList<>();
         rating = 0;
     }
 
 
-    public Recipe(String recipeName, Ingredient ingredients, Instruction instructions, int filename) {
+    public Recipe(String recipeName, List<Ingredient> ingredients, List<Instruction> instructions, int filename) {
         this.recipeName = recipeName;
         this.ingredients = ingredients;
         this.instructions = instructions;
@@ -35,7 +35,7 @@ public class Recipe implements Serializable {
         rating = 0;
     }
 
-    public Recipe(String recipeName, Ingredient ingredients, int filename, String description) {
+    public Recipe(String recipeName, List<Ingredient> ingredients, int filename, String description) {
             this.recipeName = recipeName;
             this.ingredients = ingredients;
             this.filename = filename;
@@ -55,11 +55,11 @@ public class Recipe implements Serializable {
         return recipeName;
     }
 
-    public Ingredient getIngredientObject() {
+    public List<Ingredient> getIngredientObject() {
         return ingredients;
     }
 
-    public Instruction getInstructionObject() {
+    public List<Instruction> getInstructionObject() {
         return instructions;
     }
 
@@ -67,7 +67,7 @@ public class Recipe implements Serializable {
         this.recipeName = recipeName;
     }
 
-    public void setIngredientObject(Ingredient ingredients) {
+    public void setIngredientObject(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
