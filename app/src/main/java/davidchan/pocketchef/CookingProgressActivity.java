@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Ryan on 10/1/2016.
@@ -21,11 +22,9 @@ public class CookingProgressActivity extends Activity{
     String recipeName;
     TextView steps;
     CountDownTimer timePerStep;
-    ArrayList<String> ingredientList;
+    List<Instruction> instructionList;
     TextView timer;
-    long m= 60000;
     long s= 1000;
-    long M=0, S=10;
     long totalTime;
     boolean pause=true;
     protected void onCreate(Bundle savedInstanceBundle) {
@@ -36,17 +35,16 @@ public class CookingProgressActivity extends Activity{
         skipStep = (Button) findViewById(R.id.skipStep);
         pauseButton = (Button) findViewById(R.id.pauseStep);
 
-        totalTime= m*M + S*s;
-
         Bundle recipe=new Bundle();
 
         recipe = received.getExtras();
         recipeName = recipe.getString("recipeName");
-        ingredientList =recipe.getStringArrayList("ingredients");
+        instructionList =(List<Instruction>) recipe.getSerializable("instructions");
+
         steps = (TextView) findViewById(R.id.Step);
 
-        totalTime= m*M + S*s;
-        steps.setText(recipeName+ "\n" + ingredientList.get(i));
+        totalTime= (long)instructionList.get(i).getDuration() *s;
+        steps.setText(recipeName+ "\n" + instructionList.get(i).getInstruction());
         timePerStep=timePerStep(totalTime);
         setTimer(totalTime);
         skipStep.setOnClickListener(new View.OnClickListener() {
@@ -54,16 +52,16 @@ public class CookingProgressActivity extends Activity{
             public void onClick(View v) {
                 timePerStep.cancel();
                 timer.setText("0:00");
-                if(i<ingredientList.size()){
-                    steps.setText(recipeName+ "\n"+ingredientList.get(i));
-                    totalTime= m*M + s*S;
+                if(i<instructionList.size()){
+                    steps.setText(recipeName+ "\n" + instructionList.get(i).getInstruction());
+                    totalTime=(long)instructionList.get(i).getDuration() *s;
                     pause=true;
                     pauseButton.setText("Start");
                     timePerStep=timePerStep(totalTime);
                     setTimer(totalTime);
                     i++;
                 }
-                if(i >= ingredientList.size()){
+                if(i >= instructionList.size()){
                     pauseButton.setText("Done!");
                     steps.setText("Done!");
                     totalTime=0;
@@ -88,7 +86,7 @@ public class CookingProgressActivity extends Activity{
         });
     }
     private CountDownTimer timePerStep(long Time){
-        CountDownTimer newTime = new CountDownTimer(Time, S){
+        CountDownTimer newTime = new CountDownTimer(Time, s){
             @Override
             public void onTick(long millisUntilFinished) {
                 setTimer(millisUntilFinished);
@@ -96,16 +94,16 @@ public class CookingProgressActivity extends Activity{
             @Override
             public void onFinish() {
                 timer.setText("0:00");
-                if(i<ingredientList.size()){
-                    steps.setText(recipeName+ "\n"+ingredientList.get(i));
-                    totalTime= m*M + s*S;
+                if(i<instructionList.size()){
+                    steps.setText(recipeName+ "\n"+instructionList.get(i).getInstruction());
+                    totalTime= (long)instructionList.get(i).getDuration() *s;
                     pause=true;
                     pauseButton.setText("Start");
                     timePerStep=timePerStep(totalTime);
                     setTimer(totalTime);
                     i++;
                 }
-                if(i >= ingredientList.size()){
+                if(i >= instructionList.size()){
                     pauseButton.setText("Done!");
                     steps.setText("Done!");
                     totalTime = 0;

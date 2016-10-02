@@ -58,6 +58,7 @@ public class RecipeListActivity extends AppCompatActivity {
                 TextView search = (TextView) findViewById(R.id.list_searchbar);
                 Intent intent = new Intent(RecipeListActivity.this , CookingStartActivity.class);
                 Bundle bundle= new Bundle();
+                bundle.putSerializable("instructions", (Serializable) recipes.get(position).getInstructionObject());
                 bundle.putString("recipeName", recipes.get(position).getRecipeName());
                 bundle.putInt("recipeImage", recipes.get(position).getFilename());
                 bundle.putSerializable("ingredients", (Serializable) recipes.get(position).getIngredientObject());

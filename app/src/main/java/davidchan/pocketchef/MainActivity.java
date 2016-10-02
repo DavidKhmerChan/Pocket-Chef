@@ -60,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
             friedRiceIngredients.add(new Ingredient("Rice", 0, Ingredient.MEASUREMENT.Error));
             friedRiceIngredients.add(new Ingredient("Egg", 0, Ingredient.MEASUREMENT.Error));
             List<Instruction> friedRiceInstructions = new ArrayList<>();
-            friedRiceInstructions.add(new Instruction("something", 0));
+            friedRiceInstructions.add(new Instruction("something", 10));
+            friedRiceInstructions.add(new Instruction("water", 5));
+            friedRiceInstructions.add(new Instruction("air", 12));
             recipes.add(new Recipe("Fried Rice", friedRiceIngredients, friedRiceInstructions, R.drawable.friedrice));
 
             List<Ingredient> hotDogIngredients = new ArrayList<>();
