@@ -20,11 +20,17 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
 
     private List<Recipe> recipes;
     private List<Recipe> filteredRecipes;
+    private RatingBar ratingBar;
 
     public RecipeAdapter(Context context, int resource, List<Recipe> recipes) {
         super(context, resource, recipes);
         this.recipes = recipes;
         this.filteredRecipes = recipes;
+    }
+
+    public void updateRating()
+    {
+        ratingBar.refreshDrawableState();
     }
 
     @Override
@@ -38,7 +44,7 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
 
         TextView recipeName = (TextView) row.findViewById(R.id.recipe_row_name);
         recipeName.setText(recipe.getRecipeName());
-        RatingBar ratingBar = (RatingBar) row.findViewById( R.id.row_rating);
+        ratingBar = (RatingBar) row.findViewById( R.id.row_rating);
         ratingBar.setRating( recipe.getRating() );
         return row;
     }

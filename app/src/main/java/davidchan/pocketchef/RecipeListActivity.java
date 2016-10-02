@@ -80,7 +80,9 @@ public class RecipeListActivity extends AppCompatActivity {
                 return;
             }
             int position = data.getIntExtra( "position", 0);
+            adapter.updateRating();
             recipes.get( position ).setRating( CookingStartActivity.ratingChange( data ) );
+
         }
     }
 
