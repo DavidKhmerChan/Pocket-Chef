@@ -33,11 +33,11 @@ public class CookingStartActivity extends Activity{
         position = received.getIntExtra( "position", 0 );
         float rating = received.getFloatExtra( "rating", 0 );
         String recipeName = recipe.getString("recipeName");
-        List<Instruction> ingredientList =(List<Instruction>) recipe.getSerializable("ingredients");
+        List<Ingredient> ingredientList =(List<Ingredient>) recipe.getSerializable("ingredients");
         ArrayAdapter<String> addToView = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         ListView recipeList = (ListView) findViewById(R.id.itemList);
         addToView.add(recipeName);
-        addToView.addAll(ingredientList.get(0).getInstruction());
+        addToView.addAll(ingredientList.get(0).getIngredient());
         recipeList.setAdapter(addToView);
         ImageView food = (ImageView) findViewById(R.id.foodImage);
         int recipeImage = recipe.getInt("recipeImage");
