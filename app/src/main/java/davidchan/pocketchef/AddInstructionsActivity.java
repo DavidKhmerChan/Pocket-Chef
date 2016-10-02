@@ -24,7 +24,6 @@ public class AddInstructionsActivity extends AppCompatActivity {
 
         Bundle instructionData = getIntent().getExtras().getBundle("instructionData");
         instructions = (List<Instruction>) instructionData.get("instructions");
-        instructions.add(new Instruction());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_instructions);
@@ -40,8 +39,10 @@ public class AddInstructionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(instruction.getText().toString().length() != 0){
-                    instructions.get(0).setInstruction(instruction.getText().toString());
-                    instructions.get(0).setDuration(0); // Dummy value atm.
+                    Instruction newInstruction = new Instruction();
+                    newInstruction.setInstruction(instruction.getText().toString());
+                    newInstruction.setDuration(0); // Dummy value atm.
+                    instructions.add(newInstruction);
                     adapter.notifyDataSetChanged();
                 }
                 else {

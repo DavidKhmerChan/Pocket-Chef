@@ -17,6 +17,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.ErrorManager;
 
 public class AddIngredientsActivity extends AppCompatActivity {
 
@@ -33,7 +34,6 @@ public class AddIngredientsActivity extends AppCompatActivity {
 
         final Bundle ingredientData = getIntent().getExtras().getBundle("ingredientData");
         ingredients = (List<Ingredient>) ingredientData.get("ingredients");
-        ingredients.add(new Ingredient());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredients);
@@ -62,25 +62,25 @@ public class AddIngredientsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(ingredientBox.getText().toString().length() != 0 && amountBox.getText().toString().length() != 0){
-                    ingredients.get(0).setIngredient(ingredientBox.getText().toString());
-                    ingredients.get(0).setAmount(Double.parseDouble(amountBox.getText().toString()));
+                    Ingredient newIngredient = new Ingredient(ingredientBox.getText().toString(), Double.parseDouble(amountBox.getText().toString()), Ingredient.MEASUREMENT.Error);
                     switch(measurement) {
                         case 0:
-                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Cup);
+                            newIngredient.setFormat(Ingredient.MEASUREMENT.Cup);
                             break;
                         case 1:
-                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Tbsp);
+                            newIngredient.setFormat(Ingredient.MEASUREMENT.Tbsp);
                             break;
                         case 2:
-                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Tsp);
+                            newIngredient.setFormat(Ingredient.MEASUREMENT.Tsp);
                             break;
                         case 3:
-                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Oz);
+                            newIngredient.setFormat(Ingredient.MEASUREMENT.Oz);
                             break;
                         case 4:
-                            ingredients.get(0).setFormat(Ingredient.MEASUREMENT.Lb);
+                            newIngredient.setFormat(Ingredient.MEASUREMENT.Lb);
                             break;
                     }
+                    ingredients.add(newIngredient);
                     adapter.notifyDataSetChanged();
                 }
                 else {
