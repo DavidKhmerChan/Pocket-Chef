@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <FrameLayout
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
         <RelativeLayout
-                android:layout_width = "wrap_content"
-                android:layout_height = "wrap_content"
-                >
-    <ImageView
-        android:id="@+id/foodImage"
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    </ImageView>
+            <ImageView
+                android:id="@+id/foodImage"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop">
 
-    <ListView
-        android:id="@+id/itemList"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/foodImage"
-        android:layout_height="450dp"/>
+            </ImageView>
+
+            <ListView
+                android:id="@+id/itemList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/foodImage"
+                android:layout_above="@+id/startcooking" />
 
             <Button
-                    android:id="@+id/startcooking"
-                    android:textColor="@color/transparent"
-                    android:text="Start"
-                    android:layout_alignParentBottom="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/holo_orange_light" />
+                android:id="@+id/startcooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/holo_orange_light"
+                android:text="Start"
+                android:textColor="@color/transparent" />
 
 
         </RelativeLayout>
 
         <RatingBar
-                android:id="@+id/rating_bar"
-                android:layout_width = "wrap_content"
-                android:layout_height = "wrap_content"
-                android:layout_gravity="top|center"
-                android:paddingTop="50dp"
-                />
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:paddingTop="50dp" />
 
     </FrameLayout>
 </LinearLayout>
