@@ -28,52 +28,53 @@ public class MainActivity extends AppCompatActivity {
         Random rd = new Random();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recipes = new ArrayList<Recipe>();
+        recipes = new ArrayList<>();
 
-        List<String> friedRiceIngredients = new ArrayList<>();
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        friedRiceIngredients.add("Rice");
-        friedRiceIngredients.add("Egg");
-        List<String> friedRiceInstructions = new ArrayList<>();
-        friedRiceInstructions.add("Something");
-
+        Ingredient friedRiceIngredients = new Ingredient();
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        friedRiceIngredients.getIngredients().add("Rice");
+        friedRiceIngredients.getIngredients().add("Egg");
+        Instruction friedRiceInstructions = new Instruction();
+        friedRiceInstructions.getInstructions().add("Something");
         recipes.add(new Recipe("Fried Rice", friedRiceIngredients, friedRiceInstructions, R.drawable.friedrice));
-        List<String> hotDogRecipe = new ArrayList<>();
-        hotDogRecipe.add("Hot Dog");
-        hotDogRecipe.add("Bun");
-        List<String> hotDogInstructions = new ArrayList<>();
-        hotDogInstructions.add("Something");
-        recipes.add(new Recipe("Hot Dogs", hotDogRecipe, hotDogInstructions, R.drawable.friedrice));
+
+        Ingredient hotDogIngredients = new Ingredient();
+        hotDogIngredients.getIngredients().add("Hot Dog");
+        hotDogIngredients.getIngredients().add("Bun");
+        Instruction hotDogInstructions = new Instruction();
+        hotDogInstructions.getInstructions().add("Something");
+        recipes.add(new Recipe("Hot Dogs", hotDogIngredients, hotDogInstructions, R.drawable.friedrice));
 
 //        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
-        List<String> friedRiceRecipe = new ArrayList<>();
-        friedRiceRecipe.add("Rice");
-        friedRiceRecipe.add("Egg");
+        Instruction friedRiceInstruction = new Instruction();
+        friedRiceInstruction.getInstructions().add("Rice");
+        friedRiceInstruction.getInstructions().add("Egg");
 
-        recipes.add(new Recipe("Fried Rice", friedRiceRecipe, R.drawable.friedrice, "Hello this is my world famous recipe."));
-        recipes.add(new Recipe("Hot Dogs", hotDogRecipe, R.drawable.hotdog, "Hot dogs suck"));
-        List<String> tacoRecipe = new ArrayList<>();
-        tacoRecipe.add("Ground Beef/Pork");
-        tacoRecipe.add("Tortilla Bun");
-        tacoRecipe.add("Taco Sauce");
-        tacoRecipe.add("Cooking Oil");
-        tacoRecipe.add("Onions");
-        tacoRecipe.add("Salt");
-        recipes.add(new Recipe("Taco", tacoRecipe, R.drawable.taco, "Tacos are the best"));
+        recipes.add(new Recipe("Fried Rice", friedRiceIngredients, R.drawable.friedrice, "Hello this is my world famous recipe."));
+        recipes.add(new Recipe("Hot Dogs", hotDogIngredients, R.drawable.hotdog, "Hot dogs suck"));
+        Ingredient tacoIngredient = new Ingredient();
+        tacoIngredient.getIngredients().add("Ground Beef/Pork");
+        tacoIngredient.getIngredients().add("Tortilla Bun");
+        tacoIngredient.getIngredients().add("Taco Sauce");
+        tacoIngredient.getIngredients().add("Cooking Oil");
+        tacoIngredient.getIngredients().add("Onions");
+        tacoIngredient.getIngredients().add("Salt");
+        recipes.add(new Recipe("Taco", tacoIngredient, R.drawable.taco, "Tacos are the best"));
         ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
+
         accessRecipeList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

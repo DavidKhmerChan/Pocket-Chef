@@ -14,19 +14,20 @@ import java.util.List;
 public class Recipe implements Serializable {
 
     private String recipeName, description;
-    private List<String> ingredients;
-    private List<String> instructions;
+    private Ingredient ingredients;
+    private Instruction instructions;
     private int filename;
     private float rating;
 
     public Recipe() {
         recipeName = "";
-        ingredients = new ArrayList<>();
+        ingredients = new Ingredient();
+        instructions = new Instruction();
         rating = 0;
     }
 
 
-    public Recipe(String recipeName, List<String> ingredients, List<String> instructions, int filename) {
+    public Recipe(String recipeName, Ingredient ingredients, Instruction instructions, int filename) {
         this.recipeName = recipeName;
         this.ingredients = ingredients;
         this.instructions = instructions;
@@ -34,7 +35,7 @@ public class Recipe implements Serializable {
         rating = 0;
     }
 
-    public Recipe(String recipeName, List<String> ingredients, int filename, String description) {
+    public Recipe(String recipeName, Ingredient ingredients, int filename, String description) {
             this.recipeName = recipeName;
             this.ingredients = ingredients;
             this.filename = filename;
@@ -54,11 +55,11 @@ public class Recipe implements Serializable {
         return recipeName;
     }
 
-    public List<String> getIngredients() {
+    public Ingredient getIngredientObject() {
         return ingredients;
     }
 
-    public List<String> getInstructions() {
+    public Instruction getInstructionObject() {
         return instructions;
     }
 
@@ -66,7 +67,7 @@ public class Recipe implements Serializable {
         this.recipeName = recipeName;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredientObject(Ingredient ingredients) {
         this.ingredients = ingredients;
     }
 

@@ -18,8 +18,8 @@ public class AddRecipeActivity extends AppCompatActivity {
     public static final int ADD_INGREDIENTS = 1;
     public static final int ADD_INSTRUCTIONS = 2;
 
-    List<String> ingredients;
-    List<String> instructions;
+    Ingredient ingredients;
+    Instruction instructions;
     List<Recipe> recipes;
 
     @Override
@@ -27,8 +27,8 @@ public class AddRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
 
-        ingredients = new ArrayList<>();
-        instructions = new ArrayList<>();
+        ingredients = new Ingredient();
+        instructions = new Instruction();
 
         Bundle recipeData = getIntent().getExtras().getBundle("recipeData");
         recipes = (List<Recipe>) recipeData.get("recipes");
@@ -87,13 +87,13 @@ public class AddRecipeActivity extends AppCompatActivity {
             case ADD_INGREDIENTS:
                 if (resultCode == Activity.RESULT_OK) {
                     Bundle temp = data.getExtras().getBundle("ingredientsData");
-                    ingredients = (List<String>) temp.get("ingredients");
+                    ingredients = (Ingredient) temp.get("ingredients");
                 }
                 break;
             case ADD_INSTRUCTIONS:
                 if (resultCode == Activity.RESULT_OK) {
                     Bundle temp = data.getExtras().getBundle("instructionsData");
-                    instructions = (List<String>) temp.get("instructions");
+                    instructions = (Instruction) temp.get("instructions");
                 }
                 break;
             default: break;

@@ -17,13 +17,13 @@ import java.util.List;
 
 public class AddInstructionsActivity extends AppCompatActivity {
 
-    List<String> instructions;
+    Instruction instructions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         Bundle instructionData = getIntent().getExtras().getBundle("instructionData");
-        instructions = (List<String>) instructionData.get("instructions");
+        instructions = (Instruction) instructionData.get("instructions");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_instructions);
@@ -32,14 +32,15 @@ public class AddInstructionsActivity extends AppCompatActivity {
         Button addInstructions = (Button) findViewById(R.id.add_instructions_go);
         Button finishAdding = (Button) findViewById(R.id.add_instructions_finish);
         ListView listOfInstructions = (ListView) findViewById(R.id.instructions_list_preview);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, instructions);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, instructions.getInstructions());
         listOfInstructions.setAdapter(adapter);
 
         addInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(instruction.getText().toString().length() != 0){
-                    instructions.add(instruction.getText().toString());
+                    instructions.getInstructions().add(instruction.getText().toString());
+                    instructions.setDuration(0); // Dummy value atm.
                     adapter.notifyDataSetChanged();
                 }
                 else {
