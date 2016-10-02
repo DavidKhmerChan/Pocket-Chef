@@ -25,6 +25,8 @@
         android:id="@+id/search"
         android:layout_alignParentRight="true"
         android:text="@string/search"
+        android:textColor="@color/transparent"
+        android:background="@color/orange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -43,12 +45,14 @@
             android:src="@drawable/friedrice"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
+            android:background="@color/transparent"
             android:layout_height="@dimen/pic_size" />
         <TextView
             android:id="@+id/featured_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/bottom_bar"
+            android:layout_height="20pt"
+            android:textColor="@color/transparent"
+            android:background="@android:color/holo_orange_light"
             />
 
     </LinearLayout>
@@ -58,6 +62,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/orange"
+        android:textColor="@color/transparent"
         android:layout_alignParentRight="true"
         android:onClick="addRecipe" />
 </RelativeLayout>
