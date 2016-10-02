@@ -30,7 +30,7 @@ public class InstructionAdapter extends ArrayAdapter<Instruction> {
 
         TextView overview = (TextView) row.findViewById(R.id.instruction_overview);
 
-        overview.setText(instruction.getInstruction() + " - " + instruction.getDuration());
+        overview.setText(instruction.getInstruction() + " - " + instruction.getDuration() + " seconds");
 
         return row;
     }
