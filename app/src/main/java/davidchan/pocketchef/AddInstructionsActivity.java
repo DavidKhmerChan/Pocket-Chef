@@ -18,6 +18,12 @@ import java.util.List;
 public class AddInstructionsActivity extends AppCompatActivity {
 
     List<Instruction> instructions;
+    EditText instruction;
+    EditText duration;
+    Button addInstructions;
+    Button finishAdding;
+    ListView listOfInstructions;
+    InstructionAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +34,12 @@ public class AddInstructionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_instructions);
 
-        final EditText instruction = (EditText) findViewById(R.id.instructions_text);
-        Button addInstructions = (Button) findViewById(R.id.add_instructions_go);
-        Button finishAdding = (Button) findViewById(R.id.add_instructions_finish);
-        ListView listOfInstructions = (ListView) findViewById(R.id.instructions_list_preview);
-        final InstructionAdapter adapter = new InstructionAdapter(this, R.layout.instruction_row, instructions);
+        instruction = (EditText) findViewById(R.id.instructions_text);
+        duration = (EditText) findViewById(R.id.duration_text);
+        addInstructions = (Button) findViewById(R.id.add_instructions_go);
+        finishAdding = (Button) findViewById(R.id.add_instructions_finish);
+        listOfInstructions = (ListView) findViewById(R.id.instructions_list_preview);
+        adapter = new InstructionAdapter(this, R.layout.instruction_row, instructions);
         listOfInstructions.setAdapter(adapter);
 
         addInstructions.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +48,7 @@ public class AddInstructionsActivity extends AppCompatActivity {
                 if(instruction.getText().toString().length() != 0){
                     Instruction newInstruction = new Instruction();
                     newInstruction.setInstruction(instruction.getText().toString());
-                    newInstruction.setDuration(0); // Dummy value atm.
+                    newInstruction.setDuration(Double.parseDouble(duration.getText().toString())); // Dummy value atm.
                     instructions.add(newInstruction);
                     adapter.notifyDataSetChanged();
                 }
