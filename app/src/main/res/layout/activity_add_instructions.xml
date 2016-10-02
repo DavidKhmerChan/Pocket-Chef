@@ -20,6 +20,7 @@
     <EditText
         android:id="@+id/duration_text"
         android:hint="Duration (in seconds)"
+        android:inputType="numberDecimal"
         android:gravity="center"
         android:layout_below="@id/instructions_text"
         android:layout_width="match_parent"

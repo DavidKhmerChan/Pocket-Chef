@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class AddRecipeActivity extends AppCompatActivity {
         ingredients = new ArrayList<>();
         instructions = new ArrayList<>();
 
-        Bundle recipeData = getIntent().getExtras().getBundle("recipeData");
+        final Bundle recipeData = getIntent().getExtras().getBundle("recipeData");
         recipes = (List<Recipe>) recipeData.get("recipes");
 
         final EditText recipeName = (EditText) findViewById(R.id.recipe_name);
@@ -63,8 +64,19 @@ public class AddRecipeActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ingredients == null || instructions == null) {
-                    return;
+                if (ingredients.size() == 0 || instructions.size() == 0) {
+                    if (ingredients.size() == 0 && instructions.size() == 0) {
+                        Toast.makeText(v.getContext(), "Please enter some ingredients and instructions!", Toast.LENGTH_LONG).show();
+                    }
+                    else if (ingredients.size() == 0 && instructions.size() != 0) {
+                        Toast.makeText(v.getContext(), "Please enter some ingredients!", Toast.LENGTH_LONG).show();
+                    }
+                    else if (ingredients.size() != 0 && instructions.size() == 0) {
+                        Toast.makeText(v.getContext(), "Please enter some instructions!", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else if (recipeName.getText().toString().length() == 0) {
+                    Toast.makeText(v.getContext(), "Please enter a name for your recipe!", Toast.LENGTH_LONG).show();
                 }
                 else {
                     Recipe newRecipe = new Recipe(recipeName.getText().toString(), ingredients, instructions, 0);
