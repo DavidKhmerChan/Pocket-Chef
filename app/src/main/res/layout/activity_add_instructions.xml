@@ -17,10 +17,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <EditText
+        android:id="@+id/duration_text"
+        android:hint="Duration (in seconds)"
+        android:gravity="center"
+        android:layout_below="@id/instructions_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/add_instructions_go"
         android:text="Add Instruction"
-        android:layout_below="@+id/instructions_text"
+        android:layout_below="@+id/duration_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
