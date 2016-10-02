@@ -186,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         MainActivity.this.saveRecipes();
+                        finish();
                         //close();
 
 
@@ -195,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // do something when the button is clicked
                     public void onClick(DialogInterface arg0, int arg1) {
+                        finish();
                     }
                 })
                 .show();
@@ -212,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (IOException io)
         {
-            /*
+
             AlertDialog alertBox = new AlertDialog.Builder(this)
                     .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + io)
                     .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
@@ -220,16 +222,16 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick( DialogInterface arg0, int arg1 )
                         {
-                            finish();
+
                         }
                     }).show();
-            */
+
 
         }
 
         catch ( ClassNotFoundException cnf)
         {
-            /*
+
             AlertDialog alertBox = new AlertDialog.Builder(this)
                     .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + cnf)
                     .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
@@ -237,10 +239,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick( DialogInterface arg0, int arg1 )
                         {
-                            finish();
+
                         }
                     }).show();
-                    */
+
         }
         return recipes;
     }
