@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -16,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -213,11 +211,32 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (IOException io)
         {
+            AlertDialog alertBox = new AlertDialog.Builder(this)
+                    .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + io)
+                    .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick( DialogInterface arg0, int arg1 )
+                        {
+                            finish();
+                        }
+                    }).show();
+
 
         }
+
         catch ( ClassNotFoundException cnf)
         {
-
+            AlertDialog alertBox = new AlertDialog.Builder(this)
+                    .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + cnf)
+                    .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick( DialogInterface arg0, int arg1 )
+                        {
+                            finish();
+                        }
+                    }).show();
         }
         return recipes;
     }
