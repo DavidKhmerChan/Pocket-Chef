@@ -47,7 +47,8 @@ public class CookingProgressActivity extends Activity{
 
         totalTime= m*M + S*s;
         steps.setText(recipeName+ "\n" + ingredientList.get(i));
-
+        timePerStep=timePerStep(totalTime);
+        setTimer(totalTime);
         skipStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +66,7 @@ public class CookingProgressActivity extends Activity{
                 if(i >= ingredientList.size()){
                     pauseButton.setText("Done!");
                     steps.setText("Done!");
+                    totalTime=0;
                 }
             }
         });
@@ -106,6 +108,7 @@ public class CookingProgressActivity extends Activity{
                 if(i >= ingredientList.size()){
                     pauseButton.setText("Done!");
                     steps.setText("Done!");
+                    totalTime = 0;
                 }
             }
         };
