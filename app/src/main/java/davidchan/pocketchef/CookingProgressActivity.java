@@ -45,22 +45,21 @@ public class CookingProgressActivity extends AppCompatActivity {
         steps = (TextView) findViewById(R.id.Step);
 
         totalTime= (long)instructionList.get(i).getDuration() *s;
-        steps.setText(recipeName+ "\n" + instructionList.get(i).getInstruction());
         timePerStep=timePerStep(totalTime);
+        steps.setText(recipeName+ "\n" +instructionList.get(i).getInstruction());
         setTimer(totalTime);
         skipStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timePerStep.cancel();
                 timer.setText("0:00");
-                if(i<instructionList.size()){
-                    steps.setText(recipeName+ "\n" + instructionList.get(i).getInstruction());
+                if(++i<instructionList.size()){
+                    steps.setText(recipeName+ "\n" + instructionList.get(i).getInstruction() + "\n" + instructionList.size()+""+ i);
                     totalTime=(long)instructionList.get(i).getDuration() *s;
+                    setTimer(totalTime);
+                    timePerStep=timePerStep(totalTime);
                     pause=true;
                     pauseButton.setText("Start");
-                    timePerStep=timePerStep(totalTime);
-                    setTimer(totalTime);
-                    i++;
                 }
                 if(i >= instructionList.size()){
                     pauseButton.setText("Done!");
@@ -95,14 +94,13 @@ public class CookingProgressActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timer.setText("0:00");
-                if(i<instructionList.size()){
+                if(++i<instructionList.size()){
                     steps.setText(recipeName+ "\n"+instructionList.get(i).getInstruction());
                     totalTime= (long)instructionList.get(i).getDuration() *s;
                     pause=true;
                     pauseButton.setText("Start");
                     timePerStep=timePerStep(totalTime);
                     setTimer(totalTime);
-                    i++;
                 }
                 if(i >= instructionList.size()){
                     pauseButton.setText("Done!");
