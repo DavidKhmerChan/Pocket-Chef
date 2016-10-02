@@ -1,10 +1,14 @@
 package davidchan.pocketchef;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +16,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
         Random rd = new Random();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recipes = new ArrayList<>();
+
+        String fileName = "recipes.dat";
+        recipes = loadRecipes( fileName );
+        if (recipes.isEmpty())
+        {
+            recipes = new ArrayList <>();
 
         List<Ingredient> friedRiceIngredients = new ArrayList<>();
         friedRiceIngredients.add(new Ingredient("Rice", 0, Ingredient.MEASUREMENT.Error));
@@ -148,6 +163,79 @@ public class MainActivity extends AppCompatActivity {
                     recipes = (List<Recipe>) temp.get("recipes");
                 }
             default: break;
+        }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitByBackKey();
+
+            //moveTaskToBack(false);
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    protected void exitByBackKey() {
+
+        AlertDialog alertbox = new AlertDialog.Builder(this)
+                .setMessage("Would you like to save your Recipes?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        MainActivity.this.saveRecipes();
+                        finish();
+                        //close();
+
+
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        finish();
+                    }
+                })
+                .show();
+
+    }
+
+    private ArrayList <Recipe> loadRecipes(String fileName)
+    {
+        ArrayList <Recipe> recipes = new ArrayList <Recipe>(  );
+        try
+        {
+            FileInputStream file = this.openFileInput( fileName );
+            ObjectInputStream objectStream = new ObjectInputStream( file );
+            recipes = (ArrayList <Recipe> ) objectStream.readObject();
+        }
+        catch (IOException io)
+        {
+
+        }
+        catch ( ClassNotFoundException cnf)
+        {
+
+        }
+        return recipes;
+    }
+
+    private void saveRecipes()
+    {
+        try
+        {
+            FileOutputStream file = this.openFileOutput("recipes.dat", Context.MODE_PRIVATE);
+            ObjectOutputStream objectStream = new ObjectOutputStream( file );
+            objectStream.writeObject(recipes);
+            objectStream.close();
+            file.close();
+        }
+        catch ( IOException io)
+        {
+            System.out.println("Error - Failed to Process File");
+            System.out.println(io);
         }
     }
 }
