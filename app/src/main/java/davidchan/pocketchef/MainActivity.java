@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         hotDogIngredients.getIngredients().add("Bun");
         Instruction hotDogInstructions = new Instruction();
         hotDogInstructions.getInstructions().add("Something");
-        recipes.add(new Recipe("Hot Dogs", hotDogIngredients, hotDogInstructions, R.drawable.friedrice));
+        recipes.add(new Recipe("Hot Dogs", hotDogIngredients, hotDogInstructions, R.drawable.hotdog));
 
 //        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
         Instruction friedRiceInstruction = new Instruction();
