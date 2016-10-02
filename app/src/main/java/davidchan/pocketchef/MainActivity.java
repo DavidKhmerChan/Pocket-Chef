@@ -209,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (IOException io)
         {
+            /*
             AlertDialog alertBox = new AlertDialog.Builder(this)
                     .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + io)
                     .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
@@ -219,12 +220,13 @@ public class MainActivity extends AppCompatActivity {
                             finish();
                         }
                     }).show();
-
+            */
 
         }
 
         catch ( ClassNotFoundException cnf)
         {
+            /*
             AlertDialog alertBox = new AlertDialog.Builder(this)
                     .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + cnf)
                     .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
@@ -235,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
                             finish();
                         }
                     }).show();
+                    */
         }
         return recipes;
     }
