@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.Rating;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,7 +19,7 @@ import java.util.List;
  * Created by Ryan on 9/30/2016.
  */
 
-public class CookingStartActivity extends Activity{
+public class CookingStartActivity extends AppCompatActivity {
     private static final String RATING_CHANGE = "davidchan.pocketchef.rating_change";
 
     Bundle recipe;
