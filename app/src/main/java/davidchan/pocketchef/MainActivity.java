@@ -183,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface arg0, int arg1) {
                         MainActivity.this.saveRecipes();
-                        finish();
                         //close();
 
 
@@ -193,7 +192,6 @@ public class MainActivity extends AppCompatActivity {
 
                     // do something when the button is clicked
                     public void onClick(DialogInterface arg0, int arg1) {
-                        finish();
                     }
                 })
                 .show();
