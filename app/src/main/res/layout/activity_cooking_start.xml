@@ -28,6 +28,7 @@
 
             <Button
                     android:id="@+id/startcooking"
+                    android:textColor="@color/transparent"
                     android:text="Start"
                     android:layout_alignParentBottom="true"
                     android:layout_width="match_parent"
