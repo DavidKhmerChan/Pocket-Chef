@@ -39,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         String fileName = "recipes.dat";
         recipes = loadRecipes(fileName);
-        if (recipes.isEmpty()) {
-            recipes = new ArrayList<>();
+        if (recipes.isEmpty())
+        {
+            recipes = new ArrayList <>();
 
             List<Ingredient> friedRiceIngredients = new ArrayList<>();
             friedRiceIngredients.add(new Ingredient("Rice", 0, Ingredient.MEASUREMENT.Error));
@@ -65,28 +66,30 @@ public class MainActivity extends AppCompatActivity {
             friedRiceInstructions.add(new Instruction("air", 12));
             recipes.add(new Recipe("Fried Rice", friedRiceIngredients, friedRiceInstructions, R.drawable.friedrice));
 
-            List<Ingredient> hotDogIngredients = new ArrayList<>();
-            hotDogIngredients.add(new Ingredient("Hot Dog", 0, Ingredient.MEASUREMENT.Error));
-            hotDogIngredients.add(new Ingredient("Bun", 0, Ingredient.MEASUREMENT.Error));
-            List<Instruction> hotDogInstructions = new ArrayList<>();
-            hotDogInstructions.add(new Instruction("Something", 0));
-            recipes.add(new Recipe("Hot Dogs", hotDogIngredients, hotDogInstructions, R.drawable.friedrice));
+            List < Ingredient > hotDogIngredients = new ArrayList <>();
+            hotDogIngredients.add( new Ingredient( "Hot Dog", 0, Ingredient.MEASUREMENT.Error ) );
+            hotDogIngredients.add( new Ingredient( "Bun", 0, Ingredient.MEASUREMENT.Error ) );
+            List < Instruction > hotDogInstructions = new ArrayList <>();
+            hotDogInstructions.add( new Instruction( "Something", 0 ) );
+            recipes.add( new Recipe( "Hot Dogs", hotDogIngredients, hotDogInstructions, R.drawable.friedrice ) );
 
-//        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
-            List<Instruction> friedRiceInstruction = new ArrayList<>();
-            friedRiceInstruction.add(new Instruction("Rice", 0));
-            friedRiceInstruction.add(new Instruction("Egg", 0));
+            //        ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
+            List < Instruction > friedRiceInstruction = new ArrayList <>();
+            friedRiceInstruction.add( new Instruction( "Rice", 0 ) );
+            friedRiceInstruction.add( new Instruction( "Egg", 0 ) );
 
-            recipes.add(new Recipe("Fried Rice", friedRiceIngredients, R.drawable.friedrice, "Hello this is my world famous recipe."));
-            recipes.add(new Recipe("Hot Dogs", hotDogIngredients, R.drawable.hotdog, "Hot dogs suck"));
-            List<Ingredient> tacoIngredient = new ArrayList<>();
-            tacoIngredient.add(new Ingredient("Ground Beef/Pork", 0, Ingredient.MEASUREMENT.Error));
-            tacoIngredient.add(new Ingredient("Tortilla Bun", 0, Ingredient.MEASUREMENT.Error));
-            tacoIngredient.add(new Ingredient("Taco Sauce", 0, Ingredient.MEASUREMENT.Error));
-            tacoIngredient.add(new Ingredient("Cooking Oil", 0, Ingredient.MEASUREMENT.Error));
-            tacoIngredient.add(new Ingredient("Onions", 0, Ingredient.MEASUREMENT.Error));
-            tacoIngredient.add(new Ingredient("Salt", 0, Ingredient.MEASUREMENT.Error));
-            recipes.add(new Recipe("Taco", tacoIngredient, R.drawable.taco, "Tacos are the best"));
+            recipes.add( new Recipe( "Fried Rice", friedRiceIngredients, R.drawable.friedrice, "Hello this is my world famous recipe." ) );
+            recipes.add( new Recipe( "Hot Dogs", hotDogIngredients, R.drawable.hotdog, "Hot dogs suck" ) );
+            List < Ingredient > tacoIngredient = new ArrayList <>();
+            tacoIngredient.add( new Ingredient( "Ground Beef/Pork", 0, Ingredient.MEASUREMENT.Error ) );
+            tacoIngredient.add( new Ingredient( "Tortilla Bun", 0, Ingredient.MEASUREMENT.Error ) );
+            tacoIngredient.add( new Ingredient( "Taco Sauce", 0, Ingredient.MEASUREMENT.Error ) );
+            tacoIngredient.add( new Ingredient( "Cooking Oil", 0, Ingredient.MEASUREMENT.Error ) );
+            tacoIngredient.add( new Ingredient( "Onions", 0, Ingredient.MEASUREMENT.Error ) );
+            tacoIngredient.add( new Ingredient( "Salt", 0, Ingredient.MEASUREMENT.Error ) );
+            recipes.add( new Recipe( "Taco", tacoIngredient, R.drawable.taco, "Tacos are the best" ) );
+        }
+
             ImageButton accessRecipeList = (ImageButton) findViewById(R.id.featured_pic);
 
             accessRecipeList.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +125,6 @@ public class MainActivity extends AppCompatActivity {
 
             TextView title = (TextView) findViewById(R.id.featured_title);
             title.setText("Featured Recipe : " + recipes.get(randomizer).getRecipeName());
-
-        }
     }
 
     @Override

@@ -1,6 +1,8 @@
 package davidchan.pocketchef;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -67,7 +69,34 @@ public class RecipeListActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivityForResult(intent, REQUEST_CODE_RATECHANGE);
             }
+
         });
+        recipeListView.setOnItemLongClickListener( new AdapterView.OnItemLongClickListener()
+        {
+            @Override
+            public boolean onItemLongClick( AdapterView < ? > parent, final View view, final int position, long id )
+            {
+                AlertDialog alertbox = new AlertDialog.Builder(RecipeListActivity.this)
+                        .setMessage("Would you like to delete this Recipe?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                view.setVisibility( View.INVISIBLE );
+                                recipes.remove( recipes.get( position ) );
+                                adapter.notifyDataSetChanged();
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                            // do something when the button is clicked
+                            public void onClick(DialogInterface arg0, int arg1) {
+                            }
+                        })
+                        .show();
+                return false;
+            }
+        } );
         
     }
 
