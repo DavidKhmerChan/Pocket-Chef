@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -215,34 +216,13 @@ public class MainActivity extends AppCompatActivity {
         catch (IOException io)
         {
 
-            AlertDialog alertBox = new AlertDialog.Builder(this)
-                    .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + io)
-                    .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
-                    {
-                        @Override
-                        public void onClick( DialogInterface arg0, int arg1 )
-                        {
-
-                        }
-                    }).show();
-
+            Toast.makeText(this, "Failed to Load Recipes. Loading Default Recipes", Toast.LENGTH_SHORT).show();
 
         }
 
         catch ( ClassNotFoundException cnf)
         {
-
-            AlertDialog alertBox = new AlertDialog.Builder(this)
-                    .setMessage("Error - Failed to load recipes!\nReverting to default recipes.\n" + cnf)
-                    .setNeutralButton( "Ok", new DialogInterface.OnClickListener()
-                    {
-                        @Override
-                        public void onClick( DialogInterface arg0, int arg1 )
-                        {
-
-                        }
-                    }).show();
-
+            Toast.makeText(this, "Failed to Load Recipes. Loading Defualt Recipes", Toast.LENGTH_SHORT).show();
         }
         return recipes;
     }
